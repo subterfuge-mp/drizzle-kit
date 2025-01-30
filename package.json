@@ -1,0 +1,42 @@
+{
+    "name": "@subterfuge-mp/drizzle-kit",
+    "version": "0.0.0",
+    "homepage": "https://subterfuge.mp",
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com",
+        "access": "public"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/subterfuge-mp/drizzle-kit.git"
+    },
+    "author": "Subterfuge Team",
+    "license": "MIT",
+    "bin": {
+        "drizzle-kit": "./bin.cjs"
+    },
+    "scripts": {
+        "pack": "cp package.json dist/ && (cd dist && npm pack --pack-destination ..) && rm -f package.tgz && mv *.tgz package.tgz",
+        "publish": "npm publish package.tgz"
+    },
+    "exports": {
+        ".": {
+            "import": {
+                "default": "./index.mjs"
+            },
+            "require": {
+                "default": "./index.js"
+            },
+            "default": "./index.mjs"
+        },
+        "./api": {
+            "import": {
+                "default": "./api.mjs"
+            },
+            "require": {
+                "default": "./api.js"
+            },
+            "default": "./api.mjs"
+        }
+    }
+}
